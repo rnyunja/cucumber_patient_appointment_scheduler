@@ -3,11 +3,6 @@
  */
 package cucumberJava;
 
-/**
- * @author Rogers Nyunja
- *
- */
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -30,11 +25,6 @@ public class LoginPage {
 	
    @Then("^The login page should come up$") 
    public void indexPage() { 
-      if(driver.findElement(By.id("u_0_v")).isEnabled()) { 
-         System.out.println("Test 1 Pass"); 
-      } else { 
-         System.out.println("Test 1 Fail"); 
-      } 
-      driver.close(); 
+	   driver.navigate().to("http://localhost:8080/PatientAppointmentPage/login.jsp"); 
    }
 }
