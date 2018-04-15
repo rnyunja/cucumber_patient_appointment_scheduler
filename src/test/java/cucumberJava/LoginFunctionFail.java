@@ -34,7 +34,7 @@ public class LoginFunctionFail {
       driver.findElement(By.id("passwordId")).click(); 
    } 
    
-   @Then("^I click on submit button$") 
+   @Then("^I can click on submit button$") 
    public void loginButton() { 
       if(driver.findElement(By.id("submit")).isEnabled()) { 
          System.out.println("Test 1 Pass"); 
@@ -44,7 +44,6 @@ public class LoginFunctionFail {
       driver.close(); 
    } 
 
-	
    @Then("^Login should fail$") 
    public void checkFail() {  
       if(driver.getCurrentUrl().equalsIgnoreCase(

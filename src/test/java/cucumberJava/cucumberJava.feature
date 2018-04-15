@@ -27,7 +27,7 @@ Feature: CucumberJava
      Then The login page should come up
  
 
-  @tag2
+ @tag2
   Scenario: Login Functionality Fails
     Given I enter the correct Url
     And I enter username
@@ -36,27 +36,25 @@ Feature: CucumberJava
     Then Login should fail
     #And I get an error message for both and or all fields
     Then Relogin option should be available
-
-  @tag3
-  Scenario Outline: Reset Functionality works
-    Given I have an open the browser
-    And I can navigate to the login page
-    When I enter a username
-    And Enter a valid password
-     And I can click on reset button
-     Then The entire form resets
-    And view the patient appointment page
     
-  @tag4
-  Scenario Outline: Invalid Login Credentials won't Log In
-    Given I have an open the browser
-    And I can navigate to the login page
-    When I enter a wrong username
-    And Enter an invalid password
-     And I click on sumbit button
-     Then I get an error message for both and or all fields
-    And I stay on the same page
+@tag3
+  Scenario: Login Functionality Succeess
+    Given I enter the correct Url
+    And I enter a valid username
+    When Enter a valid password
+     And I can click on submit button
+    Then Login should succeed
+    Then Patient Appointment Form should come up
 
+  @tag4
+  Scenario Outline: Reset Functionality works
+    Given I navigate to login page
+    And I enter a username
+    When I enter a password
+     And I can click on reset button
+     Then All the fields should clear
+    Then view the patient appointment page
+    
 
     Examples: 
       | name  | value | status  |
