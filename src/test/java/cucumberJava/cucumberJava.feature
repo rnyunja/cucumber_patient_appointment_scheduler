@@ -34,7 +34,7 @@ Feature: CucumberJava
     When Enter an invalid password
      And I can click on submit button
     Then Login should fail
-    And I get an error message for both and or all fields
+    #And I get an error message for both and or all fields
     Then Relogin option should be available
 
   @tag3

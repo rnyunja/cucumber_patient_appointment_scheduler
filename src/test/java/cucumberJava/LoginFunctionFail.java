@@ -25,14 +25,25 @@ public class LoginFunctionFail {
 	
    @And("^I enter username$") 
    public void enterUsername(String arg1) {   
-      driver.findElement(By.id("email")).sendKeys(arg1); 
+      driver.findElement(By.id("usernameId")).sendKeys(arg1); 
    }
 	
-   @When ("^I enter an invalid password$") 
+   @When ("^Enter an invalid password$") 
    public void enterPassword(String arg1) {
-      driver.findElement(By.id("pass")).sendKeys(arg1);
-      driver.findElement(By.id("u_0_v")).click(); 
+      driver.findElement(By.id("passwordId")).sendKeys(arg1);
+      driver.findElement(By.id("passwordId")).click(); 
    } 
+   
+   @Then("^I click on submit button$") 
+   public void loginButton() { 
+      if(driver.findElement(By.id("submit")).isEnabled()) { 
+         System.out.println("Test 1 Pass"); 
+      } else { 
+         System.out.println("Test 1 Fail"); 
+      } 
+      driver.close(); 
+   } 
+
 	
    @Then("^Login should fail$") 
    public void checkFail() {  
