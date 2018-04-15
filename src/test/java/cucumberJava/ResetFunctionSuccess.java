@@ -34,7 +34,7 @@ public class ResetFunctionSuccess {
       driver.findElement(By.id("passwordId")).click(); 
    } 
    
-   @And("^I can click on submit button$") 
+   @Then("^I can click on submit button$") 
    public void loginButton() { 
       if(driver.findElement(By.id("reset")).isEnabled()) { 
          System.out.println("Test 1 Pass"); 
