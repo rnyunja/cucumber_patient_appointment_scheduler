@@ -41,22 +41,23 @@ Feature: CucumberJava
   Scenario: Login Functionality Succeess
     Given I enter the correct Url
     And I enter a valid username
-    When Enter a valid password
+    When I enter a valid password
      And I can click on submit button
     Then Login should succeed
     Then Patient Appointment Form should come up
 
-  @tag4
+ @tag4
   Scenario Outline: Reset Functionality works
     Given I navigate to login page
     And I enter a username
     When I enter a password
-     And I can click on reset button
+     And I click on reset button
      Then All the fields should clear
-    Then view the patient appointment page
+    Then Patient Appointment Form should come up
     
 
     Examples: 
       | name  | value | status  |
       | name1 |     5 | success |
       | name2 |     7 | Fail    |
+      | name2 |     7 | success |

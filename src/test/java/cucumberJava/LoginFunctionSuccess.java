@@ -48,9 +48,9 @@ public class LoginFunctionSuccess {
    public void checkSuccess() {  
       if(driver.getCurrentUrl().equalsIgnoreCase(
          "http://localhost:8080/PatientAppointmentPage/login.jsp")){ 
-            System.out.println("Test1 Pass"); 
+            System.out.println("Test login Pass"); 
       } else { 
-         System.out.println("Test1 Failed"); 
+         System.out.println("Test login Failed"); 
       } 
       driver.close(); 
    }

@@ -34,12 +34,12 @@ public class ResetFunctionSuccess {
       driver.findElement(By.id("passwordId")).click(); 
    } 
    
-   @Then("^I can click on submit button$") 
+   @And("^I click on reset button$") 
    public void loginButton() { 
       if(driver.findElement(By.id("reset")).isEnabled()) { 
-         System.out.println("Test 1 Pass"); 
+         System.out.println("Test reset button Pass"); 
       } else { 
-         System.out.println("Test 1 Fail"); 
+         System.out.println("Test reset button Fail"); 
       } 
       driver.close(); 
    } 
@@ -48,9 +48,9 @@ public class ResetFunctionSuccess {
    public void resetInputFields() {  
       if(driver.getCurrentUrl().equalsIgnoreCase(
          "http://localhost:8080/PatientAppointmentPage/login.jsp")){ 
-            System.out.println("Test1 Pass"); 
+            System.out.println("Test reset Pass"); 
       } else { 
-         System.out.println("Test1 Failed"); 
+         System.out.println("Test reset Failed"); 
       } 
       driver.close(); 
    }
@@ -59,9 +59,9 @@ public class ResetFunctionSuccess {
    public void goToPatientAppointmentForm() { 
       if(driver.getCurrentUrl().equalsIgnoreCase(
          "http://localhost:8080/PatientAppointmentPage/display_appointment_details.jsp")){ 
-            System.out.println("Test2 Pass"); 
+            System.out.println("Appointment Form Pass"); 
       } else { 
-         System.out.println("Test2 Failed"); 
+         System.out.println("Appointment Form Failed"); 
       } 
       driver.close(); 
    }
