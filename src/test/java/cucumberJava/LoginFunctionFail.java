@@ -35,11 +35,11 @@ public class LoginFunctionFail {
    } 
    
    @Then("^I can click on submit button$") 
-   public void loginButton() { 
+   public void loginButtonEnabled() { 
       if(driver.findElement(By.id("submit")).isEnabled()) { 
-         System.out.println("Test 1 Pass"); 
+         System.out.println("Test button enabled Pass"); 
       } else { 
-         System.out.println("Test 1 Fail"); 
+         System.out.println("Test button enabled Fail"); 
       } 
       driver.close(); 
    } 
@@ -48,9 +48,9 @@ public class LoginFunctionFail {
    public void checkFail() {  
       if(driver.getCurrentUrl().equalsIgnoreCase(
          "http://localhost:8080/PatientAppointmentPage")){ 
-            System.out.println("Test1 Pass"); 
+            System.out.println("Test login with invalid credentials Pass"); 
       } else { 
-         System.out.println("Test1 Failed"); 
+         System.out.println("Test1 login with invalid credentials Fail"); 
       } 
       driver.close(); 
    }
@@ -59,9 +59,9 @@ public class LoginFunctionFail {
    public void checkRelogin() { 
       if(driver.getCurrentUrl().equalsIgnoreCase(
          "http://localhost:8080/PatientAppointmentPage")){ 
-            System.out.println("Test2 Pass"); 
+            System.out.println("Test relogin available Pass"); 
       } else { 
-         System.out.println("Test2 Failed"); 
+         System.out.println("Test relogin available Fail"); 
       } 
       driver.close(); 
    }

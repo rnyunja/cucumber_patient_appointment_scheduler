@@ -1,4 +1,4 @@
-#Author: your.email@your.domain.com
+#Author: Rogers Nyunja
 #Keywords Summary :
 #Feature: List of scenarios.
 #Scenario: Business rule through list of steps with arguments.
@@ -43,7 +43,6 @@ Feature: CucumberJava
     And I enter a valid username
     When I enter a valid password
      And I can click on submit button
-    Then Login should succeed
     Then Patient Appointment Form should come up
 
  @tag4

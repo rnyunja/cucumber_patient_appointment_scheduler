@@ -35,33 +35,22 @@ public class LoginFunctionSuccess {
    }
    
    @Then("^I can click on submit button$") 
-   public void loginButton() { 
+   public void submitButton() { 
       if(driver.findElement(By.id("submit")).isEnabled()) { 
-         System.out.println("Test 1 Pass"); 
+         System.out.println("Test submitButton enabled Pass"); 
       } else { 
-         System.out.println("Test 1 Fail"); 
+         System.out.println("Test submitButton enabled Fail"); 
       } 
       driver.close(); 
    } 
 	
-   @Then("^Login should succeed$") 
-   public void checkSuccess() {  
-      if(driver.getCurrentUrl().equalsIgnoreCase(
-         "http://localhost:8080/PatientAppointmentPage/login.jsp")){ 
-            System.out.println("Test login Pass"); 
-      } else { 
-         System.out.println("Test login Failed"); 
-      } 
-      driver.close(); 
-   }
-   
    @Then("^Patient Appointment Form should come up$") 
    public void goToPatientAppointmentForm() { 
       if(driver.getCurrentUrl().equalsIgnoreCase(
          "http://localhost:8080/PatientAppointmentPage/display_appointment_details.jsp")){ 
-            System.out.println("Test2 Pass"); 
+            System.out.println("Test login success and appoint form loading Pass"); 
       } else { 
-         System.out.println("Test2 Failed"); 
+         System.out.println("Test login success and appoint form loading Failed"); 
       } 
       driver.close(); 
    }
