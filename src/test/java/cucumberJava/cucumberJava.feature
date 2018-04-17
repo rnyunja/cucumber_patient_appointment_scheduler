@@ -23,17 +23,17 @@ Feature: CucumberJava
 @tag1
   Scenario: Login Page Comes Up
     Given I have an open browser
-    When I enter the correct Url
+    When I enter the login Url
      Then The login page should come up
  
 
  @tag2
   Scenario: Login Functionality Fails
-    Given I enter the correct Url
-    And I enter username
-    When Enter an invalid password
-     And I can click on submit button
-    Then Login should fail
+    Given I enter the login page Url
+    And I enter username that is invalid
+    When I enter an invalid password
+     Then The login button is disabled
+    And Login should fail
     #And I get an error message for both and or all fields
     Then Relogin option should be available
     
@@ -42,8 +42,8 @@ Feature: CucumberJava
     Given I enter the correct Url
     And I enter a valid username
     When I enter a valid password
-     And I can click on submit button
-    Then Patient Appointment Form should come up
+     Then The login button is enabled
+    And Patient Appointment Form should come up
 
  @tag4
   Scenario Outline: Reset Functionality works
@@ -51,8 +51,8 @@ Feature: CucumberJava
     And I enter a username
     When I enter a password
      And I click on reset button
-     Then All the fields should clear
-    Then Patient Appointment Form should come up
+     Then All the fields should clear on the form
+    Then User stays on Patient Appointment page
     
 
     Examples: 
