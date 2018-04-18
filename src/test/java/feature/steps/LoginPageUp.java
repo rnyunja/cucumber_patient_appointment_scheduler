@@ -3,30 +3,34 @@
  */
 package feature.steps;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When; 
+import cucumber.api.java.en.When;
+import cucumberJava.DefineWebDriver;
 
-public class LoginPageUp { 
-   WebDriver driver = null; 
+public class LoginPageUp {
 	
-   @Given("^I open a chrome browser$") 
-   public void openBrowser() { 
-	  System.setProperty("webdriver.gecko.driver", "C:\\Users\\ncr_r\\GeckoDriver\\geckodriver.exe");
-      driver = new FirefoxDriver();
-      driver.get("http://seleniumhq.com");
-   } 
+	/**
+	 * Initialize the object that provides a webDriver depending on browser type
+	 */
+	DefineWebDriver definedWebDriver = new DefineWebDriver();
+
+	@Given("^I open a '(.+)' browser$")
+	public void openBrowserLoginPage(String browser) {
+		definedWebDriver.openBrowser(browser);
+	}
+
+	@When("^I enter landing page URL, '(.+)'$")
+	public void goToPatientAppointment(String landingPage) {
+		definedWebDriver.getDriver().navigate().to(landingPage);
+	}
+
+	@Then("^The login page '(.+)' should come up$")
+	public void indexPage(String loginPage) {
+		definedWebDriver.getDriver().navigate().to(loginPage);
+	}
 	
-   @When("^I enter http://localhost:8080/PatientAppointmentPage$") 
-   public void goToPatientAppointment() { 
-      driver.navigate().to("http://localhost:8080/PatientAppointmentPage/"); 
-   } 
-	
-   @Then("^The login page http://localhost:8080/PatientAppointmentPage/login.jsp should come up$") 
-   public void indexPage() { 
-	   driver.navigate().to("http://localhost:8080/PatientAppointmentPage/login.jsp"); 
-   }
+	public void closeDriver() {
+		definedWebDriver.getDriver().close();
+	}
 }

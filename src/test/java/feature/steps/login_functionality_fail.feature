@@ -17,13 +17,17 @@
 ## (Comments)
 #Sample Feature Definition Template
 
+Feature: Login Functionality Feature Fail
+  In order to ensure I cannot login in,
+	If I enter the wrong username and/or password then attemp to log
 
-Feature: Login Page Comes Up Feature
-  In order to ensure Login page comes up,
-	I want to run the cucumber test to verify it is working
-
-@positiveScenario
-  Scenario: Login Page Comes Up
-    Given I open a 'Firefox' browser
-    When I enter landing page URL, 'http://localhost:8080/PatientAppointmentPage'
-     Then The login page 'http://localhost:8080/PatientAppointmentPage/login.jsp' should come up
+ @negativeScenario
+  Scenario: Login Functionality Fails
+  Given That I have a 'Firefox' browser open
+    And I enter login URL, 'http://localhost:8080/PatientAppointmentPage/login.jsp'
+    And I enter username that is invalid, like 'patients'
+    When I enter an invalid password, like 'patients'
+     Then The login button should be enabled
+    And Login should fail
+    Then Relogin option should be available
+    
