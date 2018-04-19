@@ -3,6 +3,8 @@
  */
 package feature.steps;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * @author Rogers Nyunja
  *
@@ -17,8 +19,6 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumberJava.DefineWebDriver;
-import static org.junit.Assert.assertEquals;
-import junit.framework.*;
 
 public class LoginFunctionSuccess {
 	
@@ -62,24 +62,24 @@ public class LoginFunctionSuccess {
 		}
 	}
 	
-	@Then("^I click on login button$")
+	/*@Then("^I click on login button$")
 	public void clickLoginButton() {
-		WebDriverWait wait = new WebDriverWait(definedWebDriver.getDriver(), 4000);
+		WebDriverWait wait = new WebDriverWait(definedWebDriver.getDriver(), 1000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("submit"))));
 		
 		definedWebDriver.getDriver().findElement(By.id("submit")).click();
-	}
+		System.out.println("Test submit button clicked Pass");
+	}*/
 
-	@And("^Patient Appointment Form '(.+)' should come up$")
+	@Then("^Patient Appointment Form '(.+)' should come up$")
 	public void goToPatientAppointmentForm(String apptFormURL) {
-		new WebDriverWait(definedWebDriver.getDriver(), 3000);
 		
 		if (definedWebDriver.getDriver().getCurrentUrl().equalsIgnoreCase(apptFormURL)) {
 			System.out.println("Test login success Pass! Patient Appointment form is up");
 		} else {
 			System.out.println("Test login Failed");
 		}
-		//assertEquals(definedWebDriver.getDriver().getCurrentUrl(), apptFormURL);
+		assertEquals(definedWebDriver.getDriver().getCurrentUrl(), apptFormURL);
 	}
 	
 	/**

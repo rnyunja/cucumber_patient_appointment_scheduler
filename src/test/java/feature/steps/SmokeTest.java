@@ -13,6 +13,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumberJava.DefineWebDriver;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Rogers Nyunja
@@ -50,36 +51,38 @@ public class SmokeTest {
 		webDriverWait(pwd, "passwordId");
 	}
 
-	@And("^Login button is enabled$")
+	@And("^Login button is enabled and I click$")
 	public void submitButton() {
 		WebDriverWait wait = new WebDriverWait(definedWebDriver.getDriver(), 4000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("submit"))));
 
 		if (definedWebDriver.getDriver().findElement(By.id("submit")).isEnabled()) {
 			System.out.println("Test submit button enabled Pass");
+			
+			//Click the button to login
+			definedWebDriver.getDriver().findElement(By.id("submit")).click();
 		} else {
 			System.out.println("Test submit button enabled Fail");
 		}
 	}
 	
-	@Then("^I click on the login button$")
+	/*@Then("^I click on the login button$")
 	public void clickLoginButton() {
 		WebDriverWait wait = new WebDriverWait(definedWebDriver.getDriver(), 4000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("submit"))));
 		
 		definedWebDriver.getDriver().findElement(By.id("submit")).click();
-	}
+	}*/
 
 	@And("^Patient Appointment page '(.+)' with a form should come up$")
 	public void goToPatientAppointmentForm(String apptFormURL) {
-		new WebDriverWait(definedWebDriver.getDriver(), 3000);
 		
 		if (definedWebDriver.getDriver().getCurrentUrl().equalsIgnoreCase(apptFormURL)) {
 			System.out.println("Test login success Pass! Patient Appointment form is up");
 		} else {
 			System.out.println("Test login Failed");
 		}
-		//assertEquals(definedWebDriver.getDriver().getCurrentUrl(), apptFormURL);
+		assertEquals(definedWebDriver.getDriver().getCurrentUrl(), apptFormURL);
 	}
 	
 	/**

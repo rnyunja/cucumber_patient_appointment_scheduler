@@ -21,7 +21,7 @@ Feature: Login Functionality Feature Fail
   In order to ensure I cannot login in,
 	If I enter the wrong username and/or password then attemp to log
 
- @negativeScenario
+ @loginFunctionalityFails
   Scenario: Login Functionality Fails
   Given That I have a 'Firefox' browser open
     And I enter login URL, 'http://localhost:8080/PatientAppointmentPage/login.jsp'

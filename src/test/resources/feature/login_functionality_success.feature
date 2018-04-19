@@ -17,13 +17,15 @@
 ## (Comments)
 #Sample Feature Definition Template
 
-
-Feature: Login Page Comes Up Feature
-  In order to ensure Login page comes up,
-	I want to run the cucumber test to verify it is working
-
-@positiveScenario
-  Scenario: Login Page Comes Up
-    Given I open a 'Firefox' browser
-    When I enter landing page URL, 'http://localhost:8080/PatientAppointmentPage'
-     Then The login page 'http://localhost:8080/PatientAppointmentPage/login.jsp' should come up
+Feature: Login Functionality Feature
+  In order to ensure I can login in,
+	I want to enter username and password then log in
+  
+@loginFunctionalitySuccess
+  Scenario: Login Functionality Succeess
+  Given That I open a 'Firefox' browser
+    And I enter login page 'http://localhost:8080/PatientAppointmentPage/login.jsp'
+    When I enter a valid username, 'patient'
+    And I enter a valid password, 'passw0Rd'
+     And The login button is enabled
+    Then Patient Appointment Form 'http://localhost:8080/PatientAppointmentPage/create_patient_appointment.jsp' should come up

@@ -13,6 +13,8 @@ import org.junit.runner.RunWith;
 
 
 	@RunWith(Cucumber.class) 
-	@CucumberOptions(plugin  = {"html:target/cucumber-htmlreport","json:target/cucumber-report.json"}) //,tags={"@smokeTest","@LoginFunctionSuccess"}
+	@CucumberOptions(plugin  = {"html:target/cucumber-htmlreport","json:target/cucumber-report.json"},
+					 tags={"@smokeTest"},  
+					 features={"src/test/resources/"})
 
 	public class RunTest { }

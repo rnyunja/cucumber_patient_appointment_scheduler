@@ -21,7 +21,7 @@ Feature: Reset Functionality Feature On Login
   In order to ensure I clear all fields at login,
 	If I press on the reset button, all fields should clear
 
- @positiveScenario
+ @resetFunctionSuccess
  Scenario: Reset Functionality on Login Succeess
  Given That I have opened a 'Firefox' browser
     And I enter URL for login page, 'http://localhost:8080/PatientAppointmentPage/login.jsp'
@@ -30,3 +30,4 @@ Feature: Reset Functionality Feature On Login
      Then I click on reset button
      Then All the fields on the form should clear 
     And I stay on login page, 'http://localhost:8080/PatientAppointmentPage/login.jsp'
+ 
