@@ -52,7 +52,7 @@ public class LoginFunctionFail {
 	   WebDriverWait wait = new WebDriverWait(definedWebDriver.getDriver(), 4000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("submit")))); 
 	   
-      if(!definedWebDriver.getDriver().findElement(By.id("submit")).isEnabled()) { 
+      if(definedWebDriver.getDriver().findElement(By.id("submit")).isEnabled()) { 
          System.out.println("Test button enabled Pass"); 
       } else { 
          System.out.println("Test button enabled Fail"); 
@@ -63,7 +63,7 @@ public class LoginFunctionFail {
    @And("^Login should fail$") 
    public void checkFail() {  
       if(definedWebDriver.getDriver().getCurrentUrl().equalsIgnoreCase(
-         "http://localhost:8080/PatientAppointmentPage/Login")){ 
+         "http://localhost:8080/PatientAppointmentPage/login.jsp")){ 
             System.out.println("Test login did not work with invalid credentials...It's a Pass"); 
       } else { 
          System.out.println("Test1 login worked with invalid credentials...It's a Fail"); 
@@ -73,7 +73,7 @@ public class LoginFunctionFail {
    @Then("^Relogin option should be available$") 
    public void checkRelogin() { 
       if(definedWebDriver.getDriver().getCurrentUrl().equalsIgnoreCase(
-         "http://localhost:8080/PatientAppointmentPage/Login")){ 
+         "http://localhost:8080/PatientAppointmentPage/login.jsp")){ 
             System.out.println("Test relogin available Pass"); 
       } else { 
          System.out.println("Test relogin available Fail"); 

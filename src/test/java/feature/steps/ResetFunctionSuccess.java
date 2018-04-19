@@ -25,63 +25,54 @@ public class ResetFunctionSuccess {
 	 */
 	DefineWebDriver definedWebDriver = new DefineWebDriver();
 
-	@Given("^That I open '(.+)' browser$")
-	public void openBrowserLoginFunctionFail(String browser) {
+	@Given("^That I have opened a '(.+)' browser$")
+	public void openBrowserResetLogin(String browser) {
 		definedWebDriver.openBrowser(browser);
 	}
 
-	@And("^I navigate to login page, '(.+)'$")
-	public void goToTheLandingPage(String url) {
-		definedWebDriver.getDriver().navigate().to("http://localhost:8080/PatientAppointmentPage/");
+	@And("^I enter URL for login page, '(.+)'$")
+	public void goToLandingPage(String url) {
+		definedWebDriver.getDriver().navigate().to(url);
 	}
 
-	@When("^I enter a username, '(.+)'$")
+	@When("^I enter any username, '(.+)'$")
 	public void enterUsername(String username) {
-		webDriverWait(username, "email");
+		webDriverWait(username, "usernameId");
 	}
 
-	@And("^I enter a password, '(.+)'$")
+	@And("^I enter any password, '(.+)'$")
 	public void enterPassword(String pwd) {
 		webDriverWait(pwd, "passwordId");
 	}
 
 	@Then("^I click on reset button$")
 	public void resetButton() {
-		
-		WebDriverWait wait = new WebDriverWait(definedWebDriver.getDriver(), 4000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("reset"))));
-		
-		definedWebDriver.getDriver().findElement(By.id("reset")).click();
-		webDriverWait("password", "passwordId");
-		
-		if (definedWebDriver.getDriver().findElement(By.id("username")).getText().isEmpty() &&
-				definedWebDriver.getDriver().findElement(By.id("password")).getText().isEmpty()) {
+
+		if (definedWebDriver.getDriver().findElement(By.id("reset")).isEnabled()) {
+			definedWebDriver.getDriver().findElement(By.id("reset")).click();
 			System.out.println("Test reset button Pass");
 		} else {
 			System.out.println("Test reset button Fail");
 		}
-		// driver.close();
 	}
 
-	@Then("^All the fields should clear on the form$")
+	@Then("^All the fields on the form should clear$")
 	public void resetInputFields() {
-		if (definedWebDriver.getDriver().getCurrentUrl()
-				.equalsIgnoreCase("http://localhost:8080/PatientAppointmentPage/login.jsp")) {
-			System.out.println("Test reset Pass");
+		if (definedWebDriver.getDriver().findElement(By.id("usernameId")).getText().isEmpty()
+				&& definedWebDriver.getDriver().findElement(By.id("passwordId")).getText().isEmpty()) {
+			System.out.println("Test reset button Pass");
 		} else {
-			System.out.println("Test reset Failed");
+			System.out.println("Test reset button Fail");
 		}
-		// driver.close();
 	}
 
-	@And("^I stay on login page, '(.+)'$")
+	@Then("^I stay on login page, '(.+)'$")
 	public void stayOnLoginPage(String url) {
 		if (definedWebDriver.getDriver().getCurrentUrl().equalsIgnoreCase(url)) {
 			System.out.println("Stay on login page...Pass");
 		} else {
 			System.out.println("Stay on login page...Failed");
 		}
-		// driver.close();
 	}
 
 	/**

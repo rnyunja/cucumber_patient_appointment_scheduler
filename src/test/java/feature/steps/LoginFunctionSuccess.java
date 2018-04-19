@@ -33,7 +33,7 @@ public class LoginFunctionSuccess {
 	}
 
 	@And("^I enter login page '(.+)'$")
-	public void goToPatientAppointment(String landingPage) {
+	public void goToTheLandingPage(String landingPage) {
 		definedWebDriver.getDriver().navigate().to(landingPage);
 	}
 
