@@ -29,4 +29,4 @@ Feature: Login Functionality Feature
     And I enter a valid password, 'passwORd'
      And The login button is enabled
      Then I click on login button
-    And Patient Appointment Form 'http://localhost:8080/PatientAppointmentPage/create_patient_appointment' should come up
+    And Patient Appointment Form 'http://localhost:8080/PatientAppointmentPage/create_patient_appointment.jsp' should come up
